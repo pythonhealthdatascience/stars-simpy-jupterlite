@@ -5,8 +5,3 @@ channels:
 dependencies:
   - xeus-python
   - ipycanvas
-  - simpy==4.1.1
-  - numpy
-  - pandas
-  - matplotlib
-  - python=3.10.13
