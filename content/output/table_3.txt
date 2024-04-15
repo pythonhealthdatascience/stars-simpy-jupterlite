@@ -1,5 +1,5 @@
 \begin{table}
-\caption{Simulation results that can be verified by our example reproducible pipeline.}
+\tbl{Simulation results that can be verified by our example reproducible pipeline.}
 \label{tab:table3}
 \begin{tabular}{lrrrrr}
 \toprule
