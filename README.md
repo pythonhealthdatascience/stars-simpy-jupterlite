@@ -17,7 +17,7 @@ The model will run on a users browser without the need to install any components
 * A researcher wishes to share a runnable version of a simulation model with their publication (e.g. written in `simpy`).  The code allows others to replicate the simulation results, tables and charts in a paper and allows others to reuse the model.
 * The researcher wants the model to be immediately usable. Users should not need to install python, `simpy` or any dependencies.
 * The researcher either wants to reduce load on online open science compute infrastructure (e.g. mybinder.org) or does not want to rely on it. 
-* Users may want to use a version of their own data due to governance, ethics or other reasons cannot upload this to a remote instance of the model.
+* Users may want to use a version of their own data due to governance, ethics or other reasons **cannot upload the data to a remote instance of the model.**
 * Loading the model is as simple as clicking a URL.
 
 ### 1.2. Credits ✨
