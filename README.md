@@ -36,14 +36,33 @@ In summary, we adapt a textbook example from Nelson (2013): a terminating discre
 
 > *Nelson. B.L. (2013). [Foundations and methods of stochastic simulation](https://www.amazon.co.uk/Foundations-Methods-Stochastic-Simulation-International/dp/1461461596/ref=sr_1_1?dchild=1&keywords=foundations+and+methods+of+stochastic+simulation&qid=1617050801&sr=8-1). Springer.*
 
-## 3. Try it in your browser
+## 3. Try the example DES in your browser
 
-* Classic notebook: https://pythonhealthdatascience.github.io/stars-simpy-jupterlite/notebooks/?path=01_urgent_care_model.ipynb
 * Jupyterlab: https://pythonhealthdatascience.github.io/stars-simpy-jupterlite
+* Classic notebook: https://pythonhealthdatascience.github.io/stars-simpy-jupterlite/notebooks/?path=01_urgent_care_model.ipynb
 
-## 4. Customise your simulation environment
+## 4. Using the template to create a new repo.
 
-## 📦 How to install extra packages for your DES model.
+> There are three steps: i.) create a new repo form the template; ii.) modify you repo settings so that GitHub pages are built from Actions.  iii.) Commit changes and trigger the GitHub Action and deployment. We recommend reading all instructions first.
+
+Let's assume you wanted to create a new discrete-event simulation model of cancer services.  
+
+1. The first step is to copy the template. Click on the green "use this template" button in the top right and select "create a new repository"
+2. You will be prompted to enter a name of the repository - e.g. `cancer_model` - and a short description
+3. Click on "Create Repository"
+
+![Deploy your own](img/use_template_1.gif)
+
+The JuypterLite interactive website is built from GitHub actions.  **In the newly created repo for your model** do the following
+
+4. Navigate to "Settings->Pages"
+5. Under "Build and Deployment" set the "Source" to "GitHub actions".
+
+![Deploy your own](img/actions.gif)
+
+By default the build is trigged on any commit to the `main` branch.  Push a small commit and it will trigger the build.  This will take a few minutes.  Your site will be published under https://{USERNAME}.github.io/{DEMO_REPO_NAME}
+
+## 5. How to install extra packages supporting your DES model. 📦
 
 The repo contains two environment files. To install more dependencies for your DES model and analysis you need to edit the ``environment.yml`` file.
 
