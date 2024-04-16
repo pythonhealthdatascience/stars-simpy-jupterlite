@@ -36,12 +36,24 @@ In summary, we adapt a textbook example from Nelson (2013): a terminating discre
 
 > *Nelson. B.L. (2013). [Foundations and methods of stochastic simulation](https://www.amazon.co.uk/Foundations-Methods-Stochastic-Simulation-International/dp/1461461596/ref=sr_1_1?dchild=1&keywords=foundations+and+methods+of+stochastic+simulation&qid=1617050801&sr=8-1). Springer.*
 
-## 3. Try it in your browser
+## 3. Try the example model in your browser
 
-* Classic notebook: https://pythonhealthdatascience.github.io/stars-simpy-jupterlite/notebooks/?path=01_urgent_care_model.ipynb
 * Jupyterlab: https://pythonhealthdatascience.github.io/stars-simpy-jupterlite
+* Classic notebook: https://pythonhealthdatascience.github.io/stars-simpy-jupterlite/notebooks/?path=01_urgent_care_model.ipynb
 
-## 4. Customise your simulation environment
+## 4. Using the template to create a new repo.
+
+Let's assume you wanted to create a new discrete-event simulation model of cancer services.  
+
+1. The first step is to copy the template. Click on the green "use this template" button in the top right and select "create a new repository"
+2. You will be prompted to enter a name of the repository - e.g. `cancer_model` - and a short description
+3. Click on "Create Repository"
+
+![Deploy your own](use_template_1.gif)
+
+
+
+
 
 ## 📦 How to install extra packages for your DES model.
 
