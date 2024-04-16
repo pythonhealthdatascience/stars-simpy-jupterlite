@@ -36,39 +36,19 @@ In summary, we adapt a textbook example from Nelson (2013): a terminating discre
 
 > *Nelson. B.L. (2013). [Foundations and methods of stochastic simulation](https://www.amazon.co.uk/Foundations-Methods-Stochastic-Simulation-International/dp/1461461596/ref=sr_1_1?dchild=1&keywords=foundations+and+methods+of+stochastic+simulation&qid=1617050801&sr=8-1). Springer.*
 
-## ✨ Try it in your browser ✨
+## 3. Try it in your browser
 
-https://pythonhealthdatascience.github.io/stars-simpy-jupterlite/notebooks/?path=01_urgent_care_model.ipynb
+* Classic notebook: https://pythonhealthdatascience.github.io/stars-simpy-jupterlite/notebooks/?path=01_urgent_care_model.ipynb
+* Jupyterlab: https://pythonhealthdatascience.github.io/stars-simpy-jupterlite
 
-## ≠ How does it compare to the Pyodide kernel?
+## 4. Customise your simulation environment
 
-#### Pyodide kernel:
+## 📦 How to install extra packages for your DES model.
 
-- Is based on [Pyodide](https://github.com/pyodide/pyodide)
-- Uses [IPython](https://github.com/ipython/ipython) for the code execution (access to IPython magics, support for the inline Matplotlib backend, *etc*)
-- Provides a way to dynamically install packages with ``piplite`` (**e.g.** ``await piplite.install("ipywidgets")``)
-- **Does not support** sleeping with ``from time import sleep``
-- **Does not support** pre-installing packages
+The repo contains two environment files. To install more dependencies for your DES model and analysis you need to edit the ``environment.yml`` file.
 
-#### jupyterlite-xeus-python:
+The template ``environment.yml`` is as follows:
 
-- Is based on [xeus-python](https://github.com/jupyter-xeus/xeus-python)
-- Uses [IPython](https://github.com/ipython/ipython) for the code execution (access to IPython magics, support for the inline Matplotlib backend, *etc*)
-- **Does not provide** a way to dynamically install packages (yet. We are working on building a ``mamba`` package manager for WASM)
-- **Supports** sleeping with ``from time import sleep``
-- **Supports** pre-installing packages from ``emscripten-forge`` and ``conda-forge``, by providing an ``environment.yml`` file defining the runtime environment
-
-## 💡 How to make your own deployment
-
-![Deploy your own](deploy.gif)
-
-Then your site will be published under https://{USERNAME}.github.io/{DEMO_REPO_NAME}
-
-## 📦 How to install extra packages
-
-You can pre-install extra packages for xeus-python by adding them to the ``environment.yml`` file.
-
-For example, if you want to create a JupyterLite deployment with NumPy and Matplotlib pre-installed, you would need to edit the ``environment.yml`` file as following:
 
 ```yml
 name: xeus-python-kernel
@@ -77,11 +57,57 @@ channels:
   - conda-forge
 dependencies:
   - xeus-python
+  - ipycanvas
+  - simpy=4.1.1
   - numpy
+  - pandas
   - matplotlib
 ```
 
-Only ``no-arch`` packages from ``conda-forge`` and packages from ``emscripten-forge`` can be installed.
-- **How do I know if a package is ``no-arch`` on ``conda-forge``?** ``no-arch`` means that the package is OS-independent, usually pure-python packages are ``no-arch``. To check if your package is ``no-arch`` on ``conda-forge``, check if the "Platform" entry is "no-arch" in the https://beta.mamba.pm/channels/conda-forge?tab=packages page. If your package is not ``no-arch`` but is a pure Python package, then you should probably update the feedstock to turn your package into a ``no-arch`` one.
-![](noarch.png)
-- **How do I know if my package is on ``emscripten-forge``?** You can see the list of packages pubished on ``emscripten-forge`` [here](https://beta.mamba.pm/channels/emscripten-forge?tab=packages). In case your package is missing, or it's not up-to-date, feel free to open an issue or a PR on https://github.com/emscripten-forge/recipes.
+**Key points:**
+
+* There are two channels in use. 
+  * `encription-forge` contains specific versions of the packages for web assembly These include `numpy` `pandas`, and `matplotlib`. Other popular packages include `scipy`, `scikit-learn` and `pytest`.
+  * `conda-forge` for other installs you can use conda-forge.  Only ``no-arch`` packages from ``conda-forge`` can be installed (simpy qualifies)
+* Note that `numpy`, `pandas` and `matplotlib` have specific versions available on `enscription-forge`. For this reason we recommend not including the package version number.
+* `simpy` is installed from `conda-forge` we were therefore able to freeze the version to 4.1.1 to aid reproducibility.
+* At the time of writing the xeus-python kernal will use python 3.11.3
+
+As an example modification assume that you wanted to add two new packages: `plotly` and `scipy`.  The first `plotly` is available ``no-arch`` from conda-forge so it is safe to include and if you wanted to you could try to include a version number. There is a specific version of `scipy` is available on `encription-forge`
+
+Our modified environment looks like:
+
+```yml
+name: xeus-python-kernel
+channels:
+  - https://repo.mamba.pm/emscripten-forge
+  - conda-forge
+dependencies:
+  - xeus-python
+  - ipycanvas
+  - simpy=4.1.1
+  - numpy
+  - pandas
+  - matplotlib
+  - plotly
+  - scipy
+```
+
+If you wanted to use an alternative simulation package to `simpy` this would need to be available on `conda-forge` and be ``no-arch``.  An example package is `salabim`.  A modification of the enviroment is:
+
+
+```yml
+name: xeus-python-kernel
+channels:
+  - https://repo.mamba.pm/emscripten-forge
+  - conda-forge
+dependencies:
+  - xeus-python
+  - ipycanvas
+  - salabim
+  - numpy
+  - pandas
+  - matplotlib
+  - plotly
+  - scipy
+```
