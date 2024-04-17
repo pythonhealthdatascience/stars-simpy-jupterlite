@@ -1,5 +1,6 @@
 [![lite-badge](https://jupyterlite.rtfd.io/en/latest/_static/badge.svg)](https://pythonhealthdatascience.github.io/stars-simpy-jupterlite/notebooks/?path=01_urgent_care_model.ipynb)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10987817.svg)](https://doi.org/10.5281/zenodo.10987817)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/release/python-3100/)
 [![License: MIT](https://img.shields.io/badge/ORCID-0000--0001--5274--5037-brightgreen)](https://orcid.org/0000-0001-5274-5037)
 [![License: MIT](https://img.shields.io/badge/ORCID-0000--0003--2631--4481-brightgreen)](https://orcid.org/0000-0003-2631-4481)
@@ -12,6 +13,8 @@ The materials and methods in this repository support work towards developing the
 
 The model will run on a users browser without the need to install any components.  This is achieved using Web Assembly technology i.e. [JupterLite](https://github.com/jupyterlite/jupyterlite) and [xeus-python](https://github.com/jupyter-xeus/xeus-python).  A model notebook is downloaded to the users local machine and all dependencies are pre-installed via conda-forge. The model then lives in the browsers cache. The user can make changes to the model or create new files and these are persisted (until the browser cache is cleared).  
 
+> Try it in your browser now: https://pythonhealthdatascience.github.io/stars-simpy-jupterlite
+
 ### 1.1. Use case
 
 * A researcher wishes to share a runnable version of a simulation model with their publication (e.g. written in `simpy`).  The code allows others to replicate the simulation results, tables and charts in a paper and allows others to reuse the model.
@@ -23,6 +26,27 @@ The model will run on a users browser without the need to install any components
 ### 1.2. Credits ✨
 
 > We would like to thank the [JupterLite](https://github.com/jupyterlite/jupyterlite) and [xeus-python](https://github.com/jupyter-xeus/xeus-python) developers for making this work possible. This discrete-event simulation focussed repository was based on the learning materials and template provided by [Jupyterlite xeus-python demo](https://github.com/jupyterlite/xeus-python-demo) and [tutorial given at PyData 2023](https://www.youtube.com/watch?v=WXRslU9D3bo) by Jeremy Tuloup.
+
+### 1.3. Citation
+
+If you use the template in your work we would greatly appreciate a citation when you publish your work. 
+
+> Monks, T., & Harper, A. (2024). Simpy JupyterLite Template (v0.1.0). Zenodo. https://doi.org/10.5281/zenodo.10987817
+
+```
+@software{monks_harper_jupyterlite_template,
+  author       = {Monks, Thomas and
+                  Harper, Alison},
+  title        = {Simpy JupyterLite Template},
+  month        = apr,
+  year         = 2024,
+  publisher    = {Zenodo},
+  version      = {v0.1.0},
+  doi          = {10.5281/zenodo.10987817},
+  url          = {https://doi.org/10.5281/zenodo.10987817}
+}
+```
+
 
 ## 2. The example model included
 
