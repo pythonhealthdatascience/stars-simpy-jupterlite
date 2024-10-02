@@ -3,9 +3,10 @@ channels:
   - https://repo.mamba.pm/emscripten-forge
   - conda-forge
 dependencies:
+  - python=3.11
   - xeus-python
   - ipycanvas
-  - simpy=4.1.1
+  - simpy
   - numpy
   - pandas
   - matplotlib
