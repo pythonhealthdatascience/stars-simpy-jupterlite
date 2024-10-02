@@ -7,6 +7,6 @@ dependencies:
   - xeus-python
   - ipycanvas
   - simpy
-  - numpy
+  - numpy<2
   - pandas
   - matplotlib
